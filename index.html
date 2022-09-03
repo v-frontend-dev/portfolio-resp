@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/index.css" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>my portfolio</title>
 </head>
 
@@ -22,9 +22,7 @@
             <li><a href="#contact-us">contact</a></li>
         </ul>
         <div class="rightnav v-class-resp">
-            <input type="text" class="search" name="search" id="searchb">
-            <button class="btn btn-sm">Search</button>
-
+            
         </div>
         <div class="burger">
             <div class="lines"></div>
@@ -40,9 +38,9 @@
                 <p class="text-small">Self-taught developer based in Jhansi.Strong knowledge in HTML, CSS and
                     JAVASCRIPT. Ability to design responsive websites and landing pages
                 </p>
-               <div class="buttons">
-                    
-                    <button class="btn btn-big" ><a href ="mywork.html" target="_blank">Check my work</a></button>
+                <div class="buttons">
+
+                    <button class="btn btn-big"><a href="mywork.html" target="_blank">Check my work</a></button>
                 </div>
             </div>
             <div class="secondbox">
@@ -82,8 +80,8 @@
             <p class="sectiontag text-big">Who I Am ?</p>
             <p class="sectionsubtag text-small">Highly motivated engineering graduate Looking for a entry-level position
                 as frontend developer/engineer.lrem20
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.  eius
-                ea sunt error fugiat pariatur quo, delectus natus 
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. eius
+                ea sunt error fugiat pariatur quo, delectus natus
                 hic corporis! Deserunt, animi ab harum vero veritatis quod. </p>
         </div>
         <div class="thumbnail">
@@ -92,21 +90,21 @@
     </section>
     <section class="service-section" id="services">
         <h2 class="section__title--services text-big">Services</h2>
-       
+
         <div class="service-box ">
             <div class="service">
-                
-                
+
+
                 <h3>Design & Development</h3>
                 <p>Helps in developing and maintaining the user interface. Implementing design on mobile websites.</p>
             </div>
             <div class="service">
-                
+
                 <h3>Responsive Websites</h3>
                 <p>Create websites that work well for mobile, tablet, and desktop devices.</p>
             </div>
             <div class="service">
-       
+
                 <h3>Cross browser testing</h3>
                 <p>Comparing and analyzing the behavior of your website in different browser environments</p>
             </div>
@@ -115,27 +113,60 @@
     <section class="contact" id="contact-us">
         <h2 class="textcenter">Contact us</h2>
         <div class="form">
-            <input type="text" class="form-input" id="name" placeholder="Enter your Name">
-            <input type="text" class="form-input" id="email" placeholder="Enter your Email">
-            <input type="text" class="form-input" id="Number" placeholder="Enter your Number">
-            <textarea name="" id="" cols="4" rows="10" class="form-input"
-                placeholder="Elaborate your concern"></textarea>
-            <button class="btn btn-contact">Submit</button>
+            <form onsubmit="sendEmail();reset();return false;">
+                <input type="text" class="form-input" id="name" placeholder="Enter your Name">
+                <input type="email" class="form-input" id="emails" placeholder="Enter your Email">
+                <input type="password" class="form-input" id="number" placeholder="Enter your Number">
+                <textarea name="" id="messages" cols="4" rows="10" class="form-input"
+                    placeholder="Elaborate your concern"></textarea>
+                <button id="sbtn" class="btn btn-contact">Submit</button>
+            </form>
         </div>
-        <script src="js/index.js"></script>
     </section>
+
     <footer class="back">
-        
-        <p class="footer-text"> In order to create amazing and responsive website ,please connect me on social media </p>
+
+        <p class="footer-text"> In order to create amazing and responsive website ,please connect me on social media
+        </p>
         <div class="socialmedia">
             <a href="https://github.com/v-frontend-dev" target="_blank"><i class="fa-brands fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/frontend-developer-241421240/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://www.linkedin.com/in/frontend-developer-241421240/" target="_blank"><i
+                    class="fa-brands fa-linkedin"></i></a>
             <a href="#"><i class="fa-brands fa-facebook"></i></a>
             <a href="#"><i class="fa-brands fa-instagram"></i></a>
-            
-            
+
+
         </div>
     </footer>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="../responsive design/js/index.js"></script>
+    <script>
+        function sendEmail() {
+
+let name=document.getElementById('name').value;
+let email=document.getElementById('emails').value;
+let number=document.getElementById('number').value;
+let message=document.getElementById('messages').value;
+
+
+    Email.send({
+        Host: "smtp.elasticemail.com",
+        Username: "vipin.frontend@gmail.com",
+        Password: "B3935708867C3A783242714EB080C45AC818",
+        To: 'frontend.developer710@gmail.com',
+        From: "vipin.frontend@gmail.com",
+        Subject: "contact form of query",
+        Body: "Name:"+name
+        +"<br> Email:"+email
+        +"<br> PhoneNo:"+number
+        +"<br> Message:"+messages
+    }).then(
+        message => alert("message sent success")
+    );
+}
+    </script>
+
+
 
 
 
